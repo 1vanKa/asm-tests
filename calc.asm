@@ -6,19 +6,18 @@ section .rodata
 section .text
 
 extern _print_str
+extern _print_int10
 
 _start:
   enter 0, 0
 
-  push eax
-  push ecx
-  push edx
   push hello_world
   call _print_str
   add esp, 4
-  pop edx
-  pop ecx
-  pop eax
+
+  push 123
+  call _print_int10
+  add esp, 4
 
   mov eax, 0x01
   mov ebx, 0
