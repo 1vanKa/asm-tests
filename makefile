@@ -18,6 +18,11 @@ clean:
 	rm -f *.o calc
 
 gcc:
-	gcc -o calc calc.c
-        
+	gcc -nostdlib -O0 -g -c calc.c
+	ld -o calc -T script.ld calc.o
+
+g++:
+	g++ -O0 -g -o calc calc.cpp
+	# ld -o calc calc.o
+
 .INTERMEDIATE: $(OBJS)
